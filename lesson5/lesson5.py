@@ -16,26 +16,35 @@ rus_to_eng = {
     "простой": "simple"
 }
 
+rus_to_rus = {
+    "собака": "собака",
+    "кошка": "собака",
+    "книга": "собака",
+    "стол": "собака",
+    "продолжить": "собака",
+    "простой": "собака"
+}
+
+def translate(dictionary):
+    print(dictionary)
+    word = input("Слово для перевода ")
+    try:
+        print(f"Слово на {lang}: {word} перевод: {dictionary[word]} ")
+    except KeyError:
+        print("Слова нету в словаре, хотите добавить?")
+        option = input()
+        if option == "y":
+            dictionary[word] = input(f"Перевод для слова {word} ")
+
+
 while True:
     lang = input("Язык для перевода ")
 
     if lang == "eng":
-        word = input("Слово для перевода ")
-        try:
-            print(f"Слово на {lang}: {word} перевод: {eng_to_rus[word]} ")
-        except KeyError:
-            print("Слова нету в словаре, хотите добавить?")
-            option = input()
-            if option == "y":
-                eng_to_rus[word] = input(f"Перевод для слова {word} ")
+        translate(eng_to_rus)
 
     if lang == "rus":
-        word = input("Слово для перевода ")
-        try:
-            print(f"Слово на {lang}: {word} перевод: {rus_to_eng[word]} ")
-        except KeyError:
-            print("Слова нету в словаре")
-            print("Слова нету в словаре, хотите добавить?")
-            option = input()
-            if option == "y":
-                rus_to_eng[word] = input(f"Перевод для слова {word} ")
+        translate(rus_to_eng)
+
+    if lang == "rusrus":
+        translate(rus_to_rus)
