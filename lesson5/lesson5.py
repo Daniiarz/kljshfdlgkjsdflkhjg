@@ -25,6 +25,7 @@ rus_to_rus = {
     "простой": "собака"
 }
 
+
 def translate(dictionary):
     print(dictionary)
     word = input("Слово для перевода ")
